@@ -1,36 +1,115 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Darshika Vijaykumar — Portfolio Website
+
+A premium, single-page 3D portfolio website for Darshika Vijaykumar, a second-year Business Management undergraduate at SLIIT City Uni, Sri Lanka.
+
+## Tech Stack
+
+- **Next.js 14** (App Router) + TypeScript
+- **Tailwind CSS** — custom palette (navy, off-white, gold)
+- **React Three Fiber** + **@react-three/drei** — 3D hero shape, particle field, skill cards
+- **@react-three/postprocessing** — Bloom + Vignette
+- **Framer Motion** — scroll animations, letter reveals
+- **Lenis** — smooth scrolling (respects `prefers-reduced-motion`)
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+- Node.js 18+
+- npm 9+
+
+### Install dependencies
+
+```bash
+npm install
+```
+
+### Run development server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Build for production
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+npm start
+```
 
-## Learn More
+## Deploying to Vercel
 
-To learn more about Next.js, take a look at the following resources:
+1. Push the repository to GitHub.
+2. Import the project at [vercel.com/new](https://vercel.com/new).
+3. Vercel auto-detects Next.js — no additional config needed.
+4. Click **Deploy**.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Adding a Real CV
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Replace `/public/darshika-cv.pdf` with the actual CV file. The **Download CV** button in the navbar and contact section will automatically serve it.
 
-## Deploy on Vercel
+## Adding a Real Profile Photo
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Replace `/public/profile.jpg` with a real portrait. The About section uses an arched CSS mask, so the photo will be automatically clipped to the arch frame.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Content Updates
+
+All site content is in a single file: [`/data/content.ts`](./data/content.ts)
+
+Edit the exported constants to update:
+- Personal info (name, email, phone, location)
+- About text
+- Education entries
+- Skills
+- Projects
+- Leadership & Extracurricular
+- Languages
+
+## Project Structure
+
+```
+dharshika/
+├── app/
+│   ├── layout.tsx       # Root layout, fonts, SEO metadata
+│   ├── page.tsx         # Main page assembling all sections
+│   └── globals.css      # Tailwind + custom CSS
+├── components/
+│   ├── ui/              # Page sections and UI components
+│   │   ├── Navbar.tsx
+│   │   ├── Loader.tsx
+│   │   ├── HeroText.tsx
+│   │   ├── AboutSection.tsx
+│   │   ├── EducationSection.tsx
+│   │   ├── SkillsSection.tsx
+│   │   ├── ProjectsSection.tsx
+│   │   ├── LeadershipSection.tsx
+│   │   ├── LanguagesSection.tsx
+│   │   ├── ContactSection.tsx
+│   │   ├── Footer.tsx
+│   │   └── LenisProvider.tsx
+│   └── three/           # React Three Fiber components
+│       ├── HeroCanvas.tsx    # Full-viewport canvas + postprocessing
+│       ├── HeroShape.tsx     # Glass refractive shape + mouse lerp
+│       ├── ParticleField.tsx # Subtle particle cloud
+│       ├── SkillsCanvas.tsx  # 6 floating arc skill cards
+│       └── ScrollCamera.tsx  # Scroll-linked camera dolly
+├── data/
+│   └── content.ts       # ← Edit all content here
+└── public/
+    ├── profile.jpg      # Replace with real photo
+    ├── darshika-cv.pdf  # Replace with real CV
+    └── favicon.svg
+```
+
+## Accessibility
+
+- Respects `prefers-reduced-motion` — all animations disabled, 3D frozen
+- Keyboard-navigable navigation and form
+- Semantic HTML with ARIA labels
+- Alt text on all images
+- WCAG-compliant contrast ratios
+
+## License
+
+© 2024 Darshika Vijaykumar. All rights reserved.
