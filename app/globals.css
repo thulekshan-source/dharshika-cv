@@ -99,7 +99,7 @@
   }
 
   .btn-ghost {
-    @apply px-8 py-3 border border-offwhite/30 text-offwhite/70 font-inter font-medium tracking-widest uppercase text-sm
+    @apply px-8 py-3 border border-[#F3EDE4]/30 text-[#F3EDE4]/70 font-inter font-medium tracking-widest uppercase text-sm
            hover:border-offwhite hover:text-offwhite transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offwhite focus:ring-offset-2 focus:ring-offset-navy;
   }
 
